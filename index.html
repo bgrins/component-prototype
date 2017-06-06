@@ -1,0 +1,134 @@
+
+<head>
+
+<script src="components/observer.js"></script>
+<script src="components/xbl-checkbox.js"></script>
+<script src="components/xbl-text.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 1em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.mainheader {
+  border-bottom: 1px dotted #999;
+  margin: 1em 0 1em 0;
+}
+
+.mainheader h1 span {
+  display: block;
+  font-size: 3rem;
+  color: #666;
+}
+
+.panel {
+  background-color: #efefef;
+  padding: 10px;
+}
+
+.mainfooter {
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-row-gap: 10px;
+}
+.mainheader {
+    grid-row: 1 / 2;
+}
+.content {
+    grid-row: 2 / 3;
+    height: 10000px;
+}
+.panel {
+    grid-row: 3 / 4;
+}
+.mainfooter {
+    grid-row: 4 / 5;
+}
+@media (min-width: 550px) {
+  .wrapper {
+      grid-template-columns: 2fr 4fr;
+      grid-column-gap: 2em;
+      grid-row-gap: 20px;
+  }
+  .mainheader {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+  }
+  .panel {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+  }
+  .content {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+  }
+  .mainfooter {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header class="mainheader">
+      <h1>Web Components v1 Vanilla Demo</h1>
+    </header>
+
+    <div class="panel">
+        <ul>
+          <li><a href="#checkbox">Checkbox</a></li>
+          <li><a href="#button">Button</a></li>
+          <li><a href="#text">Text</a></li>
+          <li><a href="#observer">Observer</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+      <div id="checkbox">
+        <h2>Checkbox</h2>
+        <div class="example">
+          <xbl-checkbox label="No options"></xbl-checkbox>
+        </div>
+        <div class="example">
+          <xbl-checkbox checked="checked" label="Checked By Default"></xbl-checkbox>
+        </div>
+        <div class="example">
+          <xbl-checkbox accesskey="todo" label="Access Key (todo)"></xbl-checkbox>
+        </div>
+        <div class="example">
+          <xbl-checkbox oncommand="onCommandFired()" label="oncommand (todo)"></xbl-checkbox>
+        </div>
+      </div>
+      <div id="button">
+        <h2>Button</h2>
+      </div>
+      <div id="text">
+        <h2>Text</h2>
+      </div>
+      <div id="observer">
+        <h2>Observer</h2>
+        <xbl-checkbox id="observe-target" label="Observers"></xbl-checkbox>
+        <xbl-checkbox id="blockImage2" label="Gets replaced" observes="observe-target"></xbl-checkbox>
+      </div>
+    </div>
+
+    <footer class="mainfooter">
+
+    </footer>
+  </div>
+</body>
